@@ -16,13 +16,13 @@ root.title("Pokemon Information")
 
 # TODO: Create the frames
 inp = ttk.Frame(root)
-inp.grid(row=0, column=0, columnspan=2)
+inp.grid(row=0, column=0, columnspan=2, pady=(10,5))
 
 inf = ttk.LabelFrame(root, text="Info")
-inf.grid(row=1, column=0)
+inf.grid(row=1, column=0, sticky="N", padx=(10,5), pady=(10,5))
 
 stat = ttk.LabelFrame(root, text="Stats")
-stat.grid(row=1, column=1)
+stat.grid(row=1, column=1, sticky="N", padx=(5,10), pady=(5,10))
 
 def get_info():
     pok_name = inp_ent.get().strip()
@@ -60,62 +60,63 @@ inp_buttn.grid(row=0, column=2)
 # Populate the Info frame
 
 hight_labl = ttk.Label(inf, text="Height:")
-hight_labl.grid(row=0, column=0)
+hight_labl.grid(row=0, column=0, sticky="E", padx=(10,5), pady=(10,5))
 
 weigt_labl = ttk.Label(inf, text="Weight:")
-weigt_labl.grid(row=1, column=0)
+weigt_labl.grid(row=1, column=0, sticky="E", padx=(10,5), pady=5)
 
 typ_labl = ttk.Label(inf, text="Type:")
-typ_labl.grid(row=2, column=0)
+typ_labl.grid(row=2, column=0, sticky="E", padx=(10,5), pady=(5,10))
 
-heig_val = ttk.Label(inf)
-heig_val.grid(row=0, column=1)
+heig_val = ttk.Label(inf, width=20)
+heig_val.grid(row=0, column=1, sticky="W", padx=(5,10), pady=(10,5))
 
 weig_val = ttk.Label(inf)
-weig_val.grid(row=1, column=1)
+weig_val.grid(row=1, column=1, sticky="W", padx=(5,10), pady=(10,5))
 
 type_val = ttk.Label(inf)
-type_val.grid(row=2, column=1)
+type_val.grid(row=2, column=1, sticky="W", padx=(5,10), pady=(10,5))
 
 #populate the Stats frame
 
 hp_labl = ttk.Label(stat, text="HP:")
-hp_labl.grid(row=0, column=0)
+hp_labl.grid(row=0, column=0, sticky="E", padx=(10,5), pady=(10,5))
 
 attak_labl = ttk.Label(stat, text="Attack:")
-attak_labl.grid(row=1, column=0)
+attak_labl.grid(row=1, column=0, sticky="E", padx=(10,5), pady=(10,5))
 
 def_labl = ttk.Label(stat, text="Defense:")
-def_labl.grid(row=2, column=0)
+def_labl.grid(row=2, column=0, sticky="E", padx=(10,5), pady=(10,5))
 
 spattak_labl = ttk.Label(stat, text="Special Attack:")
-
+spattak_labl.grid(row=3, column=0, sticky="E", padx=(10,5), pady=(10,5))
 
 spdef_labl = ttk.Label(stat, text="Special Defense:")
-
+spdef_labl.grid(row=4, column=0, sticky="E", padx=(10,5), pady=(10,5))
 
 speed_labl = ttk.Label(stat, text="Speed:")
-
+speed_labl.grid(row=5, column=0, sticky="E", padx=(10,5), pady=(10,5))
 
 
 Max_Stat = 255
+Bar_leng = 200
 
-hp_bar = ttk.Progressbar(stat, maximum=Max_Stat)
+hp_bar = ttk.Progressbar(stat, maximum=Max_Stat, length=Bar_leng)
+hp_bar.grid(row=)
 
+attak_bar = ttk.Progressbar(stat, maximum=Max_Stat, length=Bar_leng)
+attak_bar.grid()
 
-attak_bar = ttk.Progressbar(stat, maximum=Max_Stat)
-
-
-defe_bar = ttk.Progressbar(stat, maximum=Max_Stat)
-
-
-spatak_bar = ttk.Progressbar(stat, maximum=Max_Stat)
+defe_bar = ttk.Progressbar(stat, maximum=Max_Stat, length=Bar_leng)
 
 
-spdef_bar = ttk.Progressbar(stat, maximum=Max_Stat)
+spatak_bar = ttk.Progressbar(stat, maximum=Max_Stat, length=Bar_leng)
 
 
-speed_bar = ttk.Progressbar(stat, maximum=Max_Stat)
+spdef_bar = ttk.Progressbar(stat, maximum=Max_Stat, length=Bar_leng)
+
+
+speed_bar = ttk.Progressbar(stat, maximum=Max_Stat, length=Bar_leng)
 
 
 
