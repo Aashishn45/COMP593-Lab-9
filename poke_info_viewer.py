@@ -102,22 +102,22 @@ Max_Stat = 255
 Bar_leng = 200
 
 hp_bar = ttk.Progressbar(stat, maximum=Max_Stat, length=Bar_leng)
-hp_bar.grid(row=)
+hp_bar.grid(row=0, column=1, padx=(0,5), pady=5)
 
 attak_bar = ttk.Progressbar(stat, maximum=Max_Stat, length=Bar_leng)
-attak_bar.grid()
+attak_bar.grid(row=1, column=1, padx=(0,5), pady=5)
 
 defe_bar = ttk.Progressbar(stat, maximum=Max_Stat, length=Bar_leng)
-
+defe_bar.grid(row=2, column=1, padx=(0,5), pady=5)
 
 spatak_bar = ttk.Progressbar(stat, maximum=Max_Stat, length=Bar_leng)
-
+spatak_bar.grid(row=3, column=1, padx=(0,5))
 
 spdef_bar = ttk.Progressbar(stat, maximum=Max_Stat, length=Bar_leng)
-
+spdef_bar.grid(row=4, column=1, padx=10, pady=10)
 
 speed_bar = ttk.Progressbar(stat, maximum=Max_Stat, length=Bar_leng)
-
+speed_bar.grid(row=5, column=1, padx=(0,5))
 
 
 # TODO: Define button click event handler function
