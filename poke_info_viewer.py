@@ -9,6 +9,7 @@ Usage:
 
 from tkinter import ttk, Tk
 from poke_api import get_pokemon_info
+from tkinter import messagebox as mb
 
 # Create the main window
 root = Tk()
@@ -30,14 +31,20 @@ def get_info():
        return
     
     pok_info = get_pokemon_info(pok_name)
+    if not pok_info:
+        msg = f'Unable to fetch information for {pok_name} from the PokeAPI.'
+        mb.showinfo(title='Error', message=msg, icon='error')
+        return
+
 
     if pok_info:
         heig_val["text"] = f'{pok_info["height"]} dm'
         weig_val["text"] = f'{pok_info["weight"]} hg'
-        tp = ''
-        for type in pok_info['types']:
-            tp = tp + type['type']['name'] + ','
-        type_val['text'] = f"{tp}"
+
+        tp = ", ".join(type["type"]["name"].capitalize() for type in pok_info["types"])
+        type_val['text'] = f"{tp}"  
+      
+        
 
         hp_bar["value"] = pok_info["stats"][0]["base_stat"]
         attak_bar["value"] = pok_info["stats"][1]["base_stat"]
@@ -77,10 +84,10 @@ heig_val = ttk.Label(inf, width=20)
 heig_val.grid(row=0, column=1, sticky="W", padx=(5,10), pady=(10,5))
 
 weig_val = ttk.Label(inf)
-weig_val.grid(row=1, column=1, sticky="W", padx=10, pady=(0,10))
+weig_val.grid(row=1, column=1, sticky="W", padx=(5,10), pady=(5,5))
 
 type_val = ttk.Label(inf)
-type_val.grid(row=2, column=1, sticky="W", padx=(10,5), pady=(5,10))
+type_val.grid(row=2, column=1, sticky="W", padx=(5,10), pady=(5,10))
 
 #populate the Stats frame
 
@@ -119,7 +126,7 @@ spatak_bar = ttk.Progressbar(stat, maximum=Max_Stat, length=Bar_leng)
 spatak_bar.grid(row=3, column=1, padx=(0,5))
 
 spdef_bar = ttk.Progressbar(stat, maximum=Max_Stat, length=Bar_leng)
-spdef_bar.grid(row=4, column=1, padx=10, pady=10)
+spdef_bar.grid(row=4, column=1, padx=(0,5), pady=10)
 
 speed_bar = ttk.Progressbar(stat, maximum=Max_Stat, length=Bar_leng)
 speed_bar.grid(row=5, column=1, padx=(0,5))
