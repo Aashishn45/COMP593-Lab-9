@@ -32,14 +32,19 @@ def get_info():
     pok_info = get_pokemon_info(pok_name)
 
     if pok_info:
-        heig_val["text"] = pok_info["height"]
-        weig_val["text"] = pok_info["weight"]
-
-
+        heig_val["text"] = f'{pok_info["height"]} dm'
+        weig_val["text"] = f'{pok_info["weight"]} hg'
+        tp = ''
+        for type in pok_info['types']:
+            tp = tp + type['type']['name'] + ','
+        type_val['text'] = f"{tp}"
 
         hp_bar["value"] = pok_info["stats"][0]["base_stat"]
         attak_bar["value"] = pok_info["stats"][1]["base_stat"]
         defe_bar["value"] = pok_info["stats"][2]["base_stat"]
+        spatak_bar["value"] = pok_info["stats"][3]["base_stat"]
+        spdef_bar["value"] = pok_info["stats"][4]["base_stat"]
+        speed_bar["value"] = pok_info["stats"][5]["base_stat"]
 
 
     return
@@ -72,10 +77,10 @@ heig_val = ttk.Label(inf, width=20)
 heig_val.grid(row=0, column=1, sticky="W", padx=(5,10), pady=(10,5))
 
 weig_val = ttk.Label(inf)
-weig_val.grid(row=1, column=1, sticky="W", padx=(5,10), pady=(10,5))
+weig_val.grid(row=1, column=1, sticky="W", padx=10, pady=(0,10))
 
 type_val = ttk.Label(inf)
-type_val.grid(row=2, column=1, sticky="W", padx=(5,10), pady=(10,5))
+type_val.grid(row=2, column=1, sticky="W", padx=(10,5), pady=(5,10))
 
 #populate the Stats frame
 
