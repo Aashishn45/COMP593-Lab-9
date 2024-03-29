@@ -20,7 +20,7 @@ inp = ttk.Frame(root)
 inp.grid(row=0, column=0, columnspan=2, pady=(10,5))
 
 inf = ttk.LabelFrame(root, text="Info")
-inf.grid(row=1, column=0, sticky="N", padx=(10,0), pady=(5,10))
+inf.grid(row=1, column=0, sticky="N", padx=(5,10), pady=(5,10))
 
 stat = ttk.LabelFrame(root, text="Stats")
 stat.grid(row=1, column=1, sticky="N", padx=(5,10), pady=(5,10))
